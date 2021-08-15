@@ -1,0 +1,222 @@
+/**
+   AUTHOR:  Ankit Lalotra                    
+   COPYRIGHT:
+     Copyright (c) 2021 by Ankit Lalotra. All rights reserved.
+ */
+
+html {
+    background-color: #333333;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font: normal 14px 'arial narrow', sans-serif;
+}
+
+body {
+    border: 2px solid #000000;
+    width: 960px;
+    margin: auto;
+    background-color: #000000;
+}
+
+.scrabbleTile {
+    background: url('../images/lightWoodRepeating.png');
+    /* I found it easier to just use one image, it was too complecated for the whole borad i kept getting confused*/
+    background-size: 100% 100%;
+    border: 2px outset #ff8c00;
+    width: 2.8rem;
+    height: 2.8rem;
+    text-align: center;
+    display: inline-block;
+    z-index: 99;
+    font-weight: bold;
+    outline: 1px solid rgba(60, 255, 0, 0.6);
+    user-select: none;
+}
+
+.scrabbleTile:not(.ui-draggable-disabled) {
+    cursor: pointer;
+}
+
+.scrabbleTile>span:first-child {
+    line-height: 2.7rem;
+    font-size: 1.8rem;
+}
+
+.scrabbleTile>span:last-child {
+    position: absolute;
+    bottom: -1px;
+    right: 1px;
+    font-size: 0.9rem;
+}
+
+.scrabbleRack {
+    background-color: black;
+    align-items: center;
+    margin: 4px;
+    padding: 4px;
+    border: 1px solid #ffffff;
+    display: flex;
+    clear: both;
+    user-select: none;
+}
+
+.scrabbleRack .rackLabel {
+    white-space: nowrap;
+}
+
+.scrabbleRack h3 {
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+}
+
+.scrabbleRack .rackDrop {
+    padding-left: 4px;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+#scrabbleBag {
+    color: #00ff15;
+    font-size: 1.4rem;
+    font-family: arial;
+    text-align: center;
+    width: auto;
+    overflow: hidden;
+    margin: 4px;
+    padding: 4px;
+    border: 1px solid #ffee00;
+}
+
+#scrabbleBag:before {
+    content: 'Drop 1 tile here to swap for 2 tiles, and forfeit turn';
+    text-align: center;
+}
+
+#scrabblePopup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
+    font: normal 1.2em 'arial', sans-serif;
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    padding: 20px;
+}
+
+#scrabblePopup .ui-selectmenu-button {
+    width: 50px;
+    padding: 4px;
+}
+
+#scrabblePopup #startGameBtn {
+    clear: both;
+    width: 100%;
+}
+
+
+/* Styling for the Scrabble Scoreboard and its contents. */
+
+.scrabbleScorecard {
+    color: #ff00ea;
+    user-select: none;
+    font-size: 2rem;
+    cursor: default;
+    width: auto;
+    overflow: hidden;
+    font-family: 'arial', sans-serif;
+    border: 1px solid #000000;
+    margin: 4px;
+    padding: 4px;
+}
+
+.scrabbleScorecard .scoresLabel {
+    text-align: center;
+    border-bottom: 1px solid #fd0000;
+    font-size: 1.6rem
+}
+
+.scrabbleScorecard .scoresPlayer {
+    font-size: 1.4rem;
+    padding-top: 4px;
+}
+
+
+/* buttons */
+
+.ui-button {
+    margin: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+#scrabbleBoard {
+    border-collapse: collapse;
+    float: left;
+    margin: 4px;
+}
+
+#scrabbleBoard td {
+    font-size: 0.8rem;
+    background-color: #ddd6c3;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 1px solid #ffffff;
+}
+
+#scrabbleBoard .boardSpace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 3px;
+}
+
+#scrabbleBoard .Lx2 {
+    background-color: #ffffff;
+}
+
+#scrabbleBoard .Wx2,
+#scrabbleBoard .Star {
+    background-color: #fbff00;
+}
+
+#scrabbleBoard .Lx3 {
+    background-color: #c701d9;
+}
+
+#scrabbleBoard .Wx3 {
+    background-color: #31f64b;
+}
+
+#scrabbleBoard .Lx2:before {
+    content: 'double letter score';
+}
+
+#scrabbleBoard .Wx2:before {
+    content: 'double word score';
+}
+
+#scrabbleBoard .Lx3:before {
+    content: 'triple letter score';
+}
+
+#scrabbleBoard .Wx3:before {
+    content: 'triple word score';
+}
+
+#scrabbleBoard .Star:before {
+    font-size: 2rem;
+    content: '\2605';
+}
